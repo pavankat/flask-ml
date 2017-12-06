@@ -1,5 +1,17 @@
 # Flask ML App
 
+Housing Price Estimator
+
+This app takes in a user's information about their house and predicts the price of their house using a Gradient Boosting model with huber loss and 1000 regression trees of depth 6.
+
+Technologies used: Flask 0.12.2, Python 3, sklearn, pandas
+
+http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html
+
+## How to start up app
+
+-----------------------------------
+
 1. to start this up, start a new python 3 virtual environment:
 
 $ virtualenv -p `which python3` flask-ml-app
@@ -13,6 +25,7 @@ $  pip install -r requirements.txt
 $  python app.py
 
 ## quick code snippets
+
 -----------------------------------
 
 #### to start a new python virtual environment
@@ -36,6 +49,7 @@ $ pip freeze > requirements.txt
 $ pip uninstall SomePackage
 
 -----------------------------------
+
 #### install everything from the requirements.txt file
 
 $ pip install -r requirements.txt
@@ -43,6 +57,7 @@ $ pip install -r requirements.txt
 -----------------------------------
 
 #### install everything in the requirements.txt file
+
  To access parameters submitted in the URL (?key=value) you can use the args attribute:
 
 searchword = request.args.get('key', '')
