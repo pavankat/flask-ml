@@ -1,39 +1,55 @@
 # Flask ML App
+
+1. to start this up, start a new python 3 virtual environment:
+
+$ virtualenv -p `which python3` flask-ml-app
+
+2. install all of the dependencies
+
+$  pip install -r requirements.txt
+
+3. start up the app
+
+$  python app.py
+
+## quick code snippets
 -----------------------------------
 
-to start a new python virtual environment
+#### to start a new python virtual environment
 
 $ virtualenv -p `which python3` flask-ml-app
 
 $ source flask-ml-app/bin/activate
 
-to shut it down:
+#### to shut it down:
 
 $ deactivate
 
 -----------------------------------
 
-to freeze everything in your environment
+#### to freeze dependencies of your virtual environment to a requirements.txt file 
 
 $ pip freeze > requirements.txt
 
-to uninstall something 
+#### to uninstall something 
 
 $ pip uninstall SomePackage
 
 -----------------------------------
+#### install everything from the requirements.txt file
 
 $ pip install -r requirements.txt
 
-install everything in the requirements.txt file
-
 -----------------------------------
 
-# To access parameters submitted in the URL (?key=value) you can use the args attribute:
+#### install everything in the requirements.txt file
+ To access parameters submitted in the URL (?key=value) you can use the args attribute:
 
 searchword = request.args.get('key', '')
 
 -----------------------------------
+
+#### different ways to get data from a form in a flask endpoint
 
 request.data Contains the incoming request data as string in case it came with a mimetype Flask does not handle.
 
@@ -47,7 +63,7 @@ request.values: combined args and form, preferring args if keys overlap
 
 -----------------------------------
 
-It is simply as follows
+#### detailed information about how to get data from forms in a flask endpoint
 
 For URL Query parameter, use request.args
 
