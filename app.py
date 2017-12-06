@@ -24,7 +24,13 @@ def predict_stuff():
     if request.method == 'POST':
         model = joblib.load('trained_house_classifier_model.pkl')
 
+        print('-----line 27--------')
+        print(request.form.get('year_built'))
+
         year_built = int(request.form.get('year_built'))
+
+        print('line 31')
+
         stories = int(request.form.get('stories'))
         num_bedrooms = int(request.form.get('num_bedrooms'))
         full_bathrooms = int(request.form.get('full_bathrooms'))
@@ -39,6 +45,9 @@ def predict_stuff():
         has_pool = request.form.get('has_pool')
 
         has_central_heating = request.form.get('has_central_heating')
+
+        has_central_cooling = request.form.get('has_central_cooling')
+
 
         has_fireplace = request.form.get('has_fireplace')
 
@@ -57,10 +66,10 @@ def predict_stuff():
             total_sqft,   # total_sqft
             garage_sqft,      # garage_sqft
             carport_sqft,      # carport_sqft
-            has_fireplace,   # has_fireplace
-            has_pool,  # has_pool
-            has_central_heating,   # has_central_heating
-            has_central_cooling,   # has_central_cooling
+            1 if (has_fireplace == 'on') else 0,   # has_fireplace
+            1 if (has_pool == 'on') else 0,  # has_pool
+            1 if (has_central_heating == 'on') else 0,   # has_central_heating
+            1 if (has_central_cooling == 'on') else 0,   # has_central_cooling
             
             # Garage type: Choose only one
             1 if (garage_type == 'attached') else 0,      # attached
@@ -68,13 +77,13 @@ def predict_stuff():
             1 if (garage_type == 'none') else 0,      # none
             
             # City: Choose only one
-            1 if (garage_type == 'Amystad') else 0,      # Amystad
-            1 if (garage_type == 'Brownport') else 0,      # Brownport
-            1 if (garage_type == 'Chadstad') else 0,      # Chadstad
-            1 if (garage_type == 'Clarkberg') else 0,      # Clarkberg
-            1 if (garage_type == 'Coletown') else 0,      # Coletown
-            1 if (garage_type == 'Davidfort') else 0,      # Davidfort
-            1 if (garage_type == 'Davidtown') else 0,      # Davidtown
+            1 if (city == 'Amystad') else 0,      # Amystad
+            1 if (city == 'Brownport') else 0,      # Brownport
+            1 if (city == 'Chadstad') else 0,      # Chadstad
+            1 if (city == 'Clarkberg') else 0,      # Clarkberg
+            1 if (city == 'Coletown') else 0,      # Coletown
+            1 if (city == 'Davidfort') else 0,      # Davidfort
+            1 if (city == 'Davidtown') else 0,      # Davidtown
             0,      # East Amychester
             0,      # East Janiceville
             0,      # East Justin
@@ -122,6 +131,8 @@ def predict_stuff():
         homes_to_value = [
             house_to_value
         ]
+
+        # return render_template("index.html", pred=house_to_value) 
 
         # Run the model and make a prediction for each house in the homes_to_value array
         predicted_home_values = model.predict(homes_to_value)

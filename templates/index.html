@@ -23,84 +23,93 @@
     <br><br>
 
     <form action="/get-user-data" method="POST">
+        <input type="submit" value="get prediction">
+
+        <br><br>
         <label for="year_built">year_built</label>
-        <input type="number" name="year_built" id="year_built">
+        <input type="number" name="year_built" id="year_built" value="2009">
         
         <br><br>
 
         <label for="stories">stories</label>
-        <input type="number" name="stories" id="stories">
+        <input type="number" name="stories" id="stories" value="3">
         
         <br><br>
 
         <label for="num_bedrooms">num_bedrooms</label>
-        <input type="number" name="num_bedrooms" id="num_bedrooms">
+        <input type="number" name="num_bedrooms" id="num_bedrooms" value="7">
         
         <br><br>
         
         <label for="full_bathrooms">full_bathrooms</label>
-        <input type="number" name="full_bathrooms" id="full_bathrooms">
+        <input type="number" name="full_bathrooms" id="full_bathrooms" value="4">
         
         <br><br>
         
         <label for="half_bathrooms">half_bathrooms</label>
-        <input type="number" name="half_bathrooms" id="half_bathrooms">
+        <input type="number" name="half_bathrooms" id="half_bathrooms" value="4">
         
         <br><br>
         
         <label for="livable_sqft">livable_sqft</label>
-        <input type="number" name="livable_sqft" id="livable_sqft">
+        <input type="number" name="livable_sqft" id="livable_sqft" value="10000">
         
         <br><br>
         
         <label for="total_sqft">total_sqft</label>
-        <input type="number" name="total_sqft" id="total_sqft">
+        <input type="number" name="total_sqft" id="total_sqft" value="11000">
         
         <br><br>
         
         <label for="garage_sqft">garage_sqft</label>
-        <input type="number" name="garage_sqft" id="garage_sqft">
+        <input type="number" name="garage_sqft" id="garage_sqft" value="1000">
         
         <br><br>
         
         <label for="carport_sqft">carport_sqft</label>
-        <input type="number" name="carport_sqft" id="carport_sqft">
+        <input type="number" name="carport_sqft" id="carport_sqft" value="500">
         
         <br><br>
         
         <label for="has_fireplace">has_fireplace</label>
-        <input type="checkbox" name="has_fireplace" id="has_fireplace">
+        <input type="checkbox" name="has_fireplace" id="has_fireplace" checked>
 
+        <br> <br>
 
         <label for="has_pool">has_pool</label>
-        <input type="checkbox" name="has_pool" id="has_pool">
+        <input type="checkbox" name="has_pool" id="has_pool" checked>
 
+        <br> <br>
 
         <label for="has_central_heating">has_central_heating</label>
-        <input type="checkbox" name="has_central_heating" id="has_central_heating">
+        <input type="checkbox" name="has_central_heating" id="has_central_heating" checked>
+
+        <br> <br>
 
         <label for="has_central_cooling">has_central_cooling</label>
-        <input type="checkbox" name="has_central_cooling" id="has_central_cooling">
+        <input type="checkbox" name="has_central_cooling" id="has_central_cooling" checked>
+        <br> <br>
 
         <label for="garage_type">garage_type</label>
         <select id="garage_type" name="garage_type">
-          <option value="attached">attached</option>
+          <option value="attached" selected="selected">attached</option>
           <option value="detached">detached</option>
           <option value="none">none</option>
         </select>
+
+        <br> <br>
 
         <label for="city">what city are you in</label>
         <select id="city" name="city">
           <option value="Amystad">Amystad</option>
           <option value="Brownport">Brownport</option>
-          <option value="Chadstad">Chadstad</option>
+          <option value="Chadstad" selected="selected">Chadstad</option>
           <option value="Clarkberg">Clarkberg</option>
           <option value="Coletown">Coletown</option>
           <option value="Davidfort">Davidfort</option>
           <option value="Davidtown">Davidtown</option>
         </select>
 
-        <input type="submit" value="get prediction">
     </form>
 
   </div>
