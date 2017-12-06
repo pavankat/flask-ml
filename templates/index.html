@@ -5,26 +5,103 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hot Finds</title>
+  <title>Predict how much your house is worth</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
   <div class="container">
+    
+    {% if pred: %}
+         <p>Your house will probably be valued at: ${{pred}}</p>
+    {% endif %}
 
     <div class="jumbotron text-center">
-      <h1>Hot Finds On Craigslist</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Find Awesome Deals</a></p>
+      <h1>Predict how much your house is worth</h1>
     </div>
 
-    <!-- Craigslist Listings -->
-    <div class="row" id="craiglist-listings">
-      <div class="col-md-12">
-      {{listings}}
-        <h4 class="heading">{{listings.price}} {{listings.headline}}</h4>
-        <small>{{listings.hood}}</small>
-      </div>
-    </div>
+    <br><br>
+
+    <form action="/get-user-data" method="POST">
+        <label for="year_built">year_built</label>
+        <input type="number" name="year_built" id="year_built">
+        
+        <br><br>
+
+        <label for="stories">stories</label>
+        <input type="number" name="stories" id="stories">
+        
+        <br><br>
+
+        <label for="num_bedrooms">num_bedrooms</label>
+        <input type="number" name="num_bedrooms" id="num_bedrooms">
+        
+        <br><br>
+        
+        <label for="full_bathrooms">full_bathrooms</label>
+        <input type="number" name="full_bathrooms" id="full_bathrooms">
+        
+        <br><br>
+        
+        <label for="half_bathrooms">half_bathrooms</label>
+        <input type="number" name="half_bathrooms" id="half_bathrooms">
+        
+        <br><br>
+        
+        <label for="livable_sqft">livable_sqft</label>
+        <input type="number" name="livable_sqft" id="livable_sqft">
+        
+        <br><br>
+        
+        <label for="total_sqft">total_sqft</label>
+        <input type="number" name="total_sqft" id="total_sqft">
+        
+        <br><br>
+        
+        <label for="garage_sqft">garage_sqft</label>
+        <input type="number" name="garage_sqft" id="garage_sqft">
+        
+        <br><br>
+        
+        <label for="carport_sqft">carport_sqft</label>
+        <input type="number" name="carport_sqft" id="carport_sqft">
+        
+        <br><br>
+        
+        <label for="has_fireplace">has_fireplace</label>
+        <input type="checkbox" name="has_fireplace" id="has_fireplace">
+
+
+        <label for="has_pool">has_pool</label>
+        <input type="checkbox" name="has_pool" id="has_pool">
+
+
+        <label for="has_central_heating">has_central_heating</label>
+        <input type="checkbox" name="has_central_heating" id="has_central_heating">
+
+        <label for="has_central_cooling">has_central_cooling</label>
+        <input type="checkbox" name="has_central_cooling" id="has_central_cooling">
+
+        <label for="garage_type">garage_type</label>
+        <select id="garage_type" name="garage_type">
+          <option value="attached">attached</option>
+          <option value="detached">detached</option>
+          <option value="none">none</option>
+        </select>
+
+        <label for="city">what city are you in</label>
+        <select id="city" name="city">
+          <option value="Amystad">Amystad</option>
+          <option value="Brownport">Brownport</option>
+          <option value="Chadstad">Chadstad</option>
+          <option value="Clarkberg">Clarkberg</option>
+          <option value="Coletown">Coletown</option>
+          <option value="Davidfort">Davidfort</option>
+          <option value="Davidtown">Davidtown</option>
+        </select>
+
+        <input type="submit" value="get prediction">
+    </form>
 
   </div>
 </body>
