@@ -14,15 +14,21 @@ http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoosti
 
 1. to start this up, start a new python 3 virtual environment:
 
+```
 $ virtualenv -p `which python3` flask-ml-app
+```
 
 2. install all of the dependencies
 
+```
 $  pip install -r requirements.txt
+```
 
 3. start up the app
 
+```
 $  python app.py
+```
 
 ## quick code snippets
 
@@ -30,37 +36,47 @@ $  python app.py
 
 #### to start a new python virtual environment
 
+```
 $ virtualenv -p `which python3` flask-ml-app
 
 $ source flask-ml-app/bin/activate
+```
 
 #### to shut it down:
 
+```
 $ deactivate
+```
 
 -----------------------------------
 
 #### to freeze dependencies of your virtual environment to a requirements.txt file 
 
+```
 $ pip freeze > requirements.txt
+```
 
 #### to uninstall something 
 
+```
 $ pip uninstall SomePackage
+```
 
 -----------------------------------
 
 #### install everything from the requirements.txt file
 
+```
 $ pip install -r requirements.txt
+```
 
 -----------------------------------
 
-#### install everything in the requirements.txt file
+#### To access parameters submitted in the URL (?key=value) you can use the args attribute:
 
- To access parameters submitted in the URL (?key=value) you can use the args attribute:
-
+```
 searchword = request.args.get('key', '')
+```
 
 -----------------------------------
 
@@ -82,16 +98,24 @@ request.values: combined args and form, preferring args if keys overlap
 
 For URL Query parameter, use request.args
 
+```
 search = request.args.get("search")
 page = request.args.get("page")
+```
+
 For Form input, use request.form
 
+```
 email = request.form.get('email')
 password = request.form.get('password')
+```
+
 For data type application/json, use request.data
 
+```
 # data in string format and you have to parse into dictionary
 data = request.data
 dataDict = json.loads(data)
+```
 
 -----------------------------------
