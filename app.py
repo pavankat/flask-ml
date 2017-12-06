@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def index():
-    listings = [{price : 10, headline : 'abc', hood : '123'}, {price : 13, headline : 'abdc', hood : '1323'}, {price : 101, headline : '3abc', hood : '1423'} ] 
+    listings = {'price' : 10, 'headline' : 'abc', 'hood' : '123'}
     return render_template("index.html", listings=listings) 
 
 
