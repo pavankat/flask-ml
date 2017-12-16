@@ -27,36 +27,46 @@ $ virtualenv -p `which python3` name-goes-here
 
 3. install all your python packages 
 
+```
+$ pip install ...
+```
 
-4.
+replace the ... with a package you used. Repeat until you have no more packages to install. 
 
-make sure you also add the following python package to your requirements.txt file: gunicorn
+The packages are being installed to your virtual environment.
+
+4. make sure you install gunicorn for your deployed app
 
 ```
 $ pip install gunicorn
 ```
-## How to start up app
 
-5. make sure you have a Procfile with its contents like in this repository
+5. freeze your python package versions (dependencies) into a requirements.txt file
 
-6. make sure your app.py file's bottom looks like this:
+```
+$  pip install -r requirements.txt
+```
+
+6. make sure you have a Procfile with its contents like in this repository
+
+7. make sure your app.py file's bottom looks like this:
 
 ```
 if __name__ == "__main__":
     app.run()
 ```
 
-7. make a gitignore file and ignore your virtual environment folder. It's whatever you named your python virtual environment. You'll see a new folder.
+8. make a gitignore file and ignore your virtual environment folder. It's whatever you named your python virtual environment. You'll see a new folder.
 
-You're basically creating a .gitignore file like I have
+You're basically creating a .gitignore file like I have (yes it has no filename)
 
-8. create an aws instance with heroku in your app's directory:
+9. create an aws instance with heroku in your app's directory:
 
 ```
 $ heroku create
 ```
 
-9. push up any changes to github
+10. push up any changes to github
 
 ```
 $ git add .
@@ -64,18 +74,20 @@ $ git commit -m 'get ready to deploy'
 $ git push origin master
 ```
 
-10. deploy to heroku
+11. deploy to heroku
 
 ```
 $ git push heroku master
 ```
 
-11. open your site in the browser
+12. open your site in the browser
 
 ```
 $ heroku open
 ```
 -----------------------------------
+
+## How to start up app
 
 1. to start this up, start a new python 3 virtual environment:
 
