@@ -11,8 +11,70 @@ Technologies used: Flask 0.12.2, Python 3, sklearn, pandas
 
 http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html
 
+## How to deploy your flask app
+
+1. install the virtualenv python package
+
+```
+$ pip install virtualenv
+```
+
+2. Create a virtual environment using python 3 and update name-goes-here to the name of your virtual environment. You should do this in the directory of your app.
+
+```
+$ virtualenv -p `which python3` name-goes-here
+```
+
+3. install all your python packages 
+
+
+4.
+
+make sure you also add the following python package to your requirements.txt file: gunicorn
+
+```
+$ pip install gunicorn
+```
 ## How to start up app
 
+5. make sure you have a Procfile with its contents like in this repository
+
+6. make sure your app.py file's bottom looks like this:
+
+```
+if __name__ == "__main__":
+    app.run()
+```
+
+7. make a gitignore file and ignore your virtual environment folder. It's whatever you named your python virtual environment. You'll see a new folder.
+
+You're basically creating a .gitignore file like I have
+
+8. create an aws instance with heroku in your app's directory:
+
+```
+$ heroku create
+```
+
+9. push up any changes to github
+
+```
+$ git add .
+$ git commit -m 'get ready to deploy'
+$ git push origin master
+```
+
+10. deploy to heroku
+
+```
+$ git push heroku master
+```
+
+11. open your site in the browser
+
+```
+$ heroku open
+```
 -----------------------------------
 
 1. to start this up, start a new python 3 virtual environment:
